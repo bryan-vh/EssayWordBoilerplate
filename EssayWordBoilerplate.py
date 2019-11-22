@@ -6,6 +6,7 @@ from docx.shared import Pt
 from datetime import datetime
 
 
+# Generates the word document given the parameters passed in
 def generateBoilerplate(student, professor, class_name, title, date):
     runValue = {
         0: student,
@@ -22,6 +23,7 @@ def generateBoilerplate(student, professor, class_name, title, date):
     for i in range(5):
         paragraphs.append(doc.add_paragraph())
 
+    # Set up the style for each of the paragraphs
     for i, paragraph in enumerate(paragraphs):
         format = paragraph.paragraph_format
         format.space_before = Pt(0)
@@ -37,6 +39,7 @@ def generateBoilerplate(student, professor, class_name, title, date):
         font.size = Pt(12)
         font.name = 'Times New Roman'
 
+    # Save the Word file in the documents folder
     documents_folder = os.path.expanduser('~/Documents/')
     file = input("What do you want to call this .docx file? ")
 
@@ -45,6 +48,7 @@ def generateBoilerplate(student, professor, class_name, title, date):
     doc.save(path)
 
 
+# Get the MLA formatted current date
 def getDateString():
     now = datetime.now()
 
@@ -54,11 +58,10 @@ def getDateString():
 
     date = '{day} {month} {year}'.format(day=day, month=month, year=year)
 
-    print(date)
-
     return date
 
 
+# Main function to get inputs to pass to boilerplate
 def main():
     student = input('What is your full name? ')
     professor = 'Professor ' + input('What is your professor\'s last name? ')
