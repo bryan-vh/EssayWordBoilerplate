@@ -1,2 +1,2 @@
 # EssayWordBoilerplate
-Script to generate simple MLA format docx boilerplate for students and others
+Script to generate boilerplate for simple MLA format Word essays for students and others
